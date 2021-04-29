@@ -22,7 +22,7 @@ else {
   $res = [
     "status" => "FAIL",
     "message" => "Pengaduan gagal disimpan.",
-    "result" => 0
+    "result" => $db->error
   ];
 }
 
