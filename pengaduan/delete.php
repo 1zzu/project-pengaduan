@@ -10,7 +10,7 @@ if($query) {
   $res = [
     "status" => "OK",
     "message" => "Pengaduan berhasil dihapus.",
-    "result" => $query->free_result()
+    "result" => $idPengaduan
   ];
 }
 else {
@@ -21,6 +21,6 @@ else {
   ];
 }
 
-echo json_endode($res);
+echo json_encode($res);
 
 ?>

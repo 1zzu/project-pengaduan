@@ -2,16 +2,16 @@
     include "../api.php";
 
     //get id
-    $idPetugas = $_GET['idPetugas'];
+    $idTanggapan = $_GET['id'];
 
     //syntax
-    $sql = "DELETE FROM `petugas` WHERE `petugas`.`idPetugas` = '".$idPetugas."';";
+    $sql = "DELETE FROM `tanggapan` WHERE `tanggapan`.`idTanggapan` = '".$idTanggapan."';";
 
     $query = mysqli_query($conn, $sql);
     if($query){
-        $msg = "user berhasil terhapus";
+        $msg = "tanggapan berhasil terhapus";
     } else{
-        $msg = "user gagal dihapus";
+        $msg = "tanggapan gagal dihapus";
     }
 
     $response = array(

@@ -2,7 +2,7 @@
     include "../connect.php";
     include "../api.php";
 
-    $sql = "SELECT * FROM masyarakat";
+    $sql = "SELECT * FROM tanggapan";
     $query = mysqli_query($conn, $sql);
     while($data = mysqli_fetch_assoc($query)){
         $item[] = $data;

@@ -13,8 +13,8 @@ $check          = getimagesize($_FILES["foto"]["tmp_name"]);
 
 if($check !== false) {
   $foto         = $baseUrl . $target_file;
-  move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)
-} else {
+  move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file);
+  else {
   $foto         = '';
 }
 
@@ -25,7 +25,7 @@ if($query) {
   $res = [
     "status" => "OK",
     "message" => "Pengaduan berhasil diedit.",
-    "result" => $query->free_result()
+    "result" => $idPengaduan
   ];
 }
 else {
@@ -36,6 +36,6 @@ else {
   ];
 }
 
-echo json_endode($res);
+echo json_encode($res);
 
 ?>

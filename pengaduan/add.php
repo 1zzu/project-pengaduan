@@ -4,6 +4,7 @@ include "../connect.php";
 $nik            = isset($_POST["nik"]) ? $_POST["nik"] : "";
 $tglPengaduan   = isset($_POST["tglPengaduan"]) ? $_POST["tglPengaduan"] : "";
 $isiLaporan     = isset($_POST["isiLaporan"]) ? $_POST["isiLaporan"] : "";
+// $status         = isset($_POST["status"]) ? $_POST["status"] : "";
 
 $baseUrl        = "http://localhost/project-pengaduan/pengaduan/";
 $target_dir     = "uploads/";
@@ -14,21 +15,21 @@ $check          = getimagesize($_FILES["foto"]["tmp_name"]);
 
 if($check !== false) {
   $foto         = $baseUrl . $target_file;
-  move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)
-} else {
+  move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file);
+  } else{
   $foto         = '';
-}
+  }
 
 $status         = 'baru';
 
-$sql            = "INSERT INTO pengaduan (nik, tglPengaduan, isiLaporan, foto, status) VALUES ('".$nik."', '".$tglPengaduan."', '".$isiLaporan."', '".$status."')";
+$sql            = "INSERT INTO `pengaduan` (`nik`, `isiLaporan`, `foto`, `status`) VALUES ('".$nik."', '".$isiLaporan."', '".$foto."', '".$status."')";
 $query          = $db->query($sql);
 
 if($query) {
   $res = [
     "status" => "OK",
     "message" => "Pengaduan berhasil disimpan.",
-    "result" => $query->insert_id
+    "result" => $db->insert_id
   ];
 }
 else {
@@ -39,6 +40,6 @@ else {
   ];
 }
 
-echo json_endode($res);
+echo json_encode($res);
 
 ?>
