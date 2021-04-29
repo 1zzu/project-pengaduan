@@ -8,7 +8,7 @@ $foto           = isset($_POST["foto"]) ? $_POST["foto"] : "";
 
 $status         = 'baru';
 
-$sql            = "INSERT INTO pendaduan (nik, tglPengaduan, isiLaporan, foto, status) VALUES ('".$nik."', '".$tglPengaduan."', '".$isiLaporan."', '".$status."')";
+$sql            = "INSERT INTO pengaduan (nik, tglPengaduan, isiLaporan, foto, status) VALUES ('".$nik."', '".$tglPengaduan."', '".$isiLaporan."', '".$status."')";
 $query          = $db->query($sql);
 
 if($query) {
